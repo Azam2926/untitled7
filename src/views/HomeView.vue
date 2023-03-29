@@ -1,8 +1,12 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { NDatePicker } from 'naive-ui'
 import { ref } from 'vue'
 
-const timestamp = ref<number>(1183135260000)
+const timestamp = ref<number[]>([0, 0])
+
+function handleChange(timestamps: number[]) {
+  console.log(timestamps)
+}
 </script>
 
 <template>
@@ -19,6 +23,11 @@ const timestamp = ref<number>(1183135260000)
       uz: {{ new Date(timestamp[1]).toLocaleString('uz') }}
     </h1>
 
-    <n-date-picker v-model:value="timestamp" type="quarterrange" clearable />
+    <n-date-picker
+      v-model:value="timestamp"
+      clearable
+      type="datetimerange"
+      @change="handleChange"
+    />
   </div>
 </template>
