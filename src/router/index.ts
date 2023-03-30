@@ -11,12 +11,12 @@ const router = createRouter({
       component: MainLayout,
       children: [
         {
-          path: '/home',
+          path: 'home',
           name: 'home',
           component: HomeView
         },
         {
-          path: '/about',
+          path: 'about',
           name: 'about',
           // route level code-splitting
           // this generates a separate chunk (About.[hash].js) for this route
@@ -24,6 +24,12 @@ const router = createRouter({
           component: () => import('../views/AboutView.vue')
         }
       ]
+    },
+    {
+      path: '/',
+      redirect: {
+        name: 'app'
+      }
     }
   ]
 })
