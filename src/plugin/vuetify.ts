@@ -4,6 +4,9 @@ import { aliases, md } from 'vuetify/iconsets/md'
 import { createVuetify } from 'vuetify'
 
 export default createVuetify({
+  theme: {
+    defaultTheme: 'dark'
+  },
   icons: {
     defaultSet: 'md',
     aliases,
