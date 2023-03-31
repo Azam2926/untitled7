@@ -29,7 +29,7 @@ function handleChange(timestamps: number[]) {
       v-model:value="timestamp"
       clearable
       type="datetimerange"
-      @change="handleChange"
+      @update:value="handleChange"
     />
   </div>
 </template>
