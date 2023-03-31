@@ -1,22 +1,39 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useLayoutStore } from '@/stores/layout'
 import { useTheme } from 'vuetify'
 
 const rail = ref(true)
-const { layout, setDrawer } = useLayoutStore()
-
+const { drawer, setDrawer, toggleTheme, vuetifyTheme } = useLayoutStore()
 const theme = useTheme()
-const toggleTheme = () => {
-  console.log('toggled')
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+
+onMounted(() => setVuetifyTheme())
+
+const setVuetifyTheme = () => (theme.global.name.value = vuetifyTheme())
+
+const toggle = () => {
+  toggleTheme()
+  setVuetifyTheme()
 }
+
+// const theme = useTheme()
+// const toggleTheme = () => {
+//   console.log('toggled')
+//   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+// }
+
+const routes = [
+  { title: 'Home', url: '/home', icon: 'home' },
+  { title: 'Date', url: '/date', icon: 'date_range' },
+  { title: 'Login', url: '/login', icon: 'login' },
+  { title: 'Register', url: '/register', icon: 'how_to_reg' }
+]
 </script>
 
 <template>
   <v-navigation-drawer
     v-model:rail="rail"
-    :model-value="layout.drawer"
+    :model-value="drawer"
     app
     color="surface"
     expand-on-hover
@@ -34,14 +51,21 @@ const toggleTheme = () => {
           />
         </template>
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="dark_mode" title="theme" @click="toggleTheme" />
+          <v-list-item prepend-icon="dark_mode" title="theme" @click="toggle" />
         </v-list>
       </v-list-group>
     </v-list>
     <v-divider />
 
     <v-list nav>
-      <v-list-item color="primary" prepend-icon="home" title="Home" to="/home"></v-list-item>
+      <v-list-item
+        v-for="(route, index) in routes"
+        :key="index"
+        color="primary"
+        :prepend-icon="route.icon"
+        :title="route.title"
+        :to="route.url"
+      />
     </v-list>
   </v-navigation-drawer>
 </template>
