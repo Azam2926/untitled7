@@ -3,24 +3,17 @@ import { onMounted, ref } from 'vue'
 import { useLayoutStore } from '@/stores/layout'
 import { useTheme } from 'vuetify'
 
+const { layout, setDrawer, toggleTheme, vuetifyTheme } = useLayoutStore()
+
 const rail = ref(true)
-const { drawer, setDrawer, toggleTheme, vuetifyTheme } = useLayoutStore()
+
 const theme = useTheme()
-
 onMounted(() => setVuetifyTheme())
-
 const setVuetifyTheme = () => (theme.global.name.value = vuetifyTheme())
-
 const toggle = () => {
   toggleTheme()
   setVuetifyTheme()
 }
-
-// const theme = useTheme()
-// const toggleTheme = () => {
-//   console.log('toggled')
-//   theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
-// }
 
 const routes = [
   { title: 'Home', url: '/home', icon: 'home' },
@@ -33,7 +26,7 @@ const routes = [
 <template>
   <v-navigation-drawer
     v-model:rail="rail"
-    :model-value="drawer"
+    :model-value="layout.drawer"
     app
     color="surface"
     expand-on-hover
@@ -61,10 +54,10 @@ const routes = [
       <v-list-item
         v-for="(route, index) in routes"
         :key="index"
-        color="primary"
         :prepend-icon="route.icon"
         :title="route.title"
         :to="route.url"
+        color="primary"
       />
     </v-list>
   </v-navigation-drawer>

@@ -5,12 +5,19 @@ import { usePreferredDark } from '@vueuse/core'
 export const useLayoutStore = defineStore('layout', () => {
   const drawer = ref(true)
   const layout = reactive({
-    dark: usePreferredDark()
+    drawer: true,
+    dark: usePreferredDark().value
   })
 
   //region Drawer
-  const setDrawer = (value: boolean) => (drawer.value = value)
-  const toggleDrawer = () => (drawer.value = !drawer.value)
+  const setDrawer = (value: boolean) => {
+    console.log(value)
+    return (layout.drawer = value)
+  }
+  const toggleDrawer = () => {
+    console.log(layout.dark)
+    return (layout.drawer = !layout.drawer)
+  }
   //endregion
 
   //region Vuetify theme
@@ -20,25 +27,19 @@ export const useLayoutStore = defineStore('layout', () => {
     return localTheme ? localTheme : layout.dark ? 'dark' : 'light'
   }
   const toggleTheme = () => {
-    console.log('toggled')
     const localeTheme = localStorage.getItem('theme')
 
-    // if (localeTheme === 'dark' || layout.dark) layout.dark = false
-    // else layout.dark = true
-
     if (localeTheme) {
-      layout.dark = !(localeTheme === 'dark' && usePreferredDark())
+      layout.dark = !(localeTheme === 'dark' && usePreferredDark().value)
     } else layout.dark = !layout.dark
 
     const theme = layout.dark ? 'dark' : 'light'
-
-    console.log(theme)
     localStorage.setItem('theme', theme)
   }
   //endregion
 
   return {
-    drawer,
+    layout,
     setDrawer,
     toggleDrawer,
 

@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+import { useLayoutStore } from '@/stores/layout'
+
+const { toggleDrawer } = useLayoutStore()
+</script>
 <template>
   <v-app-bar color="teal-darken-4" image="https://picsum.photos/1920/1080?random">
     <v-app-bar-title>
@@ -18,11 +23,3 @@
     </template>
   </v-app-bar>
 </template>
-
-<script lang="ts" setup>
-import { useLayoutStore } from '@/stores/layout'
-
-const { toggleDrawer } = useLayoutStore()
-</script>
-
-<style scoped></style>
