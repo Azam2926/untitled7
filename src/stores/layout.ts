@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import { usePreferredDark } from '@vueuse/core'
 
 export const useLayoutStore = defineStore('layout', () => {
-  const drawer = ref(true)
   const layout = reactive({
     drawer: true,
     dark: usePreferredDark().value

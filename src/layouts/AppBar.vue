@@ -13,9 +13,7 @@ const { toggleDrawer } = useLayoutStore()
     </template>
     <template v-slot:append>
       <v-btn icon="favorite"></v-btn>
-
       <v-btn icon="search"></v-btn>
-
       <v-btn icon="more_vert"></v-btn>
     </template>
   </v-app-bar>
