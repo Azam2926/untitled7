@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useLayoutStore } from '@/stores/layout'
 import { useTheme } from 'vuetify'
 
@@ -14,6 +14,7 @@ const toggle = () => {
   toggleTheme()
   setVuetifyTheme()
 }
+const currentThemeIcon = computed(() => (layout.dark ? 'light_mode' : 'dark_mode'))
 
 const routes = [
   { title: 'Home', url: '/home', icon: 'home' },
@@ -44,7 +45,7 @@ const routes = [
           />
         </template>
         <v-list density="compact" nav>
-          <v-list-item prepend-icon="dark_mode" title="theme" @click="toggle" />
+          <v-list-item :prepend-icon="currentThemeIcon" title="Change theme" @click="toggle" />
         </v-list>
       </v-list-group>
     </v-list>
