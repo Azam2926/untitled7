@@ -14,8 +14,10 @@ function handleChange(timestamps: number[]) {
 
 <template>
   <div class="flex flex-col gap-4 items-center">
-    <div class="rounded-full w-32 h-32 bg-green-500/75"></div>
-    <div class="rounded-full w-32 h-32 bg-green-500"></div>
+    <div class="flex gap-8">
+      <div class="rounded-full w-32 h-32 bg-green-500/75"></div>
+      <div class="rounded-full w-32 h-32 bg-green-500"></div>
+    </div>
 
     <h1 class="text-3xl text-blue-500 text-center bg-amber-200 font-bold underline">
       uz: {{ new Date(timeBegin).toLocaleString('uz') }} | {{ timeBegin }}
