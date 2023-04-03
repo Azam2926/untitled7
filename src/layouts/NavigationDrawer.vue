@@ -38,9 +38,9 @@ const routes = [
       <v-list-group value="User">
         <template #activator="{ props }">
           <v-list-item
-            prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-            subtitle="john@google.com"
-            title="John Leider"
+            prepend-avatar="https://lh3.googleusercontent.com/a/AGNmyxZHv2vRP5B-PeARzdjfQjFVMtorZi83taXPCgYm=s576"
+            subtitle="john@bmi.uz"
+            title="John Bmi"
             v-bind="props"
           />
         </template>
