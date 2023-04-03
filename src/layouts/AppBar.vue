@@ -6,7 +6,7 @@ const { toggleDrawer } = useLayoutStore()
 <template>
   <v-app-bar color="teal-darken-4">
     <v-app-bar-title>
-      <router-link to="/">Application bar</router-link>
+      <router-link to="/">My template</router-link>
     </v-app-bar-title>
     <template v-slot:prepend>
       <v-app-bar-nav-icon icon="menu" @click.stop="toggleDrawer" />
