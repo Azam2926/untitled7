@@ -23,7 +23,11 @@ export const useLayoutStore = defineStore('layout', () => {
 
   const vuetifyTheme = () => {
     const localTheme = localStorage.getItem('theme')
-    return localTheme ? localTheme : layout.dark ? 'dark' : 'light'
+    if (localTheme) {
+      layout.dark = localTheme === 'dark'
+      setTailwindTheme()
+      return localTheme
+    } else return layout.dark ? 'dark' : 'light'
   }
   const toggleTheme = () => {
     const localeTheme = localStorage.getItem('theme')
@@ -33,7 +37,14 @@ export const useLayoutStore = defineStore('layout', () => {
     } else layout.dark = !layout.dark
 
     const theme = layout.dark ? 'dark' : 'light'
+
+    setTailwindTheme()
     localStorage.setItem('theme', theme)
+  }
+
+  const setTailwindTheme = () => {
+    if (layout.dark) document.documentElement.classList.add('dark')
+    else document.documentElement.classList.remove('dark')
   }
   //endregion
 
