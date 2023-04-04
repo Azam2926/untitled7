@@ -2,7 +2,7 @@
 import { NDatePicker } from 'naive-ui'
 import { computed, ref } from 'vue'
 
-const timestamp = ref<number[]>([0, 0])
+const timestamp = ref<[number, number]>([0, 0])
 
 const timeBegin = computed(() => (timestamp.value?.length > 0 ? timestamp.value[0] : 0))
 const timeEnd = computed(() => (timestamp.value?.length > 1 ? timestamp.value[1] : 0))
