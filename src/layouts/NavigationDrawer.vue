@@ -17,6 +17,7 @@ const toggle = () => {
 const currentThemeIcon = computed(() => (layout.dark ? 'light_mode' : 'dark_mode'))
 
 const routes = [
+  { title: 'Times', url: '/times', icon: 'timer' },
   { title: 'Home', url: '/home', icon: 'home' },
   { title: 'Date', url: '/date', icon: 'date_range' },
   { title: 'Login', url: '/login', icon: 'login' },

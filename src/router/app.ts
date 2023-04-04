@@ -1,6 +1,7 @@
 import MainLayout from '@/layouts/MainLayout.vue'
 import HomeView from '@/views/HomeView.vue'
 import type { RouteRecordRaw } from 'vue-router'
+import PrayerTimes from '@/views/PrayerTimes.vue'
 
 const app: RouteRecordRaw[] = [
   {
@@ -8,6 +9,11 @@ const app: RouteRecordRaw[] = [
     name: 'app',
     component: MainLayout,
     children: [
+      {
+        path: '/times',
+        name: 'times',
+        component: PrayerTimes
+      },
       {
         path: '/home',
         name: 'home',
