@@ -1,16 +1,18 @@
 <template>
-  <div class="flex justify-center w-[80px] h-[80px] bg-white text-green-600 text-center">
+  <div
+    class="grid place-content-center rounded-full w-[80px] h-[80px] bg-white text-center my-auto"
+  >
     <div
       class="flex flex-col align-center rounded-full w-[60px] h-[60px] border-[1px] border-green-600"
     >
-      <span class="text-[11px]">{{ timer }}</span>
-      <span>{{ time }}</span>
-      <span>{{ title }}</span>
+      <span v-if="false" class="text-[11px]">{{ timer }}</span>
+      <span class="font-bold text-green-600">{{ time }}</span>
+      <span class="text-black text-">{{ title }}</span>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed, onMounted } from 'vue'
 import { useNow } from '@vueuse/core'
 
@@ -24,7 +26,9 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'Tong'
 })
 
-const timer = computed(() => useNow().value.toLocaleTimeString('uz'))
+const timer = computed(() => {
+  return useNow().value.toLocaleTimeString('uz')
+})
 
 onMounted(() => console.log(props.title + ' vaqti:', props.time))
 </script>
