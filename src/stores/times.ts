@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { computed, reactive } from 'vue'
+import { reactive } from 'vue'
 
 export const useTimeStore = defineStore('times', () => {
   const times = reactive({
@@ -13,8 +13,5 @@ export const useTimeStore = defineStore('times', () => {
     imsak: '03:47'
   })
 
-  const fajr = computed(() => times.fajr)
-  const sunrise = computed(() => times.sunrise)
-
-  return { times, fajr, sunrise }
+  return { times }
 })
