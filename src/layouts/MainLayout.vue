@@ -3,7 +3,7 @@
   <NavigationDrawer />
   <AppBar />
   <v-main>
-    <v-container>
+    <v-container fluid class="min-h-screen">
       <router-view />
     </v-container>
   </v-main>

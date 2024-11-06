@@ -3,14 +3,38 @@ import { reactive } from 'vue'
 
 export const useTimeStore = defineStore('times', () => {
   const times = reactive({
-    fajr: '04:44',
-    sunrise: '06:02',
-    dhuhr: '12:26',
-    asr: '16:58',
-    sunset: '18:51',
-    maghrib: '20:09',
-    isha: '22:02',
-    imsak: '03:47'
+    fajr: {
+      time: '04:44',
+      title: 'Tong'
+    },
+    sunrise: {
+      time: '06:02',
+      title: 'Quyosh'
+    },
+    dhuhr: {
+      time: '12:26',
+      title: 'Peshin'
+    },
+    asr: {
+      time: '16:58',
+      title: 'Asr'
+    },
+    sunset: {
+      time: '18:51',
+      title: 'Shom'
+    },
+    maghrib: {
+      time: '20:09',
+      title: 'Hufton'
+    },
+    isha: {
+      time: '22:02',
+      title: 'isha'
+    },
+    imsak: {
+      time: '03:47',
+      title: 'imsak'
+    }
   })
 
   return { times }

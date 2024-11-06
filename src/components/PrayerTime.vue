@@ -3,10 +3,10 @@
     class="grid place-content-center rounded-full w-[80px] h-[80px] bg-white text-center my-auto"
   >
     <div
-      class="flex flex-col align-center rounded-full w-[60px] h-[60px] border-[1px] border-green-600"
+      class="grid place-content-center bg-green-600 rounded-full w-[75px] h-[75px] border-[1px] border-green-400 border-solid shadow-2xl"
     >
       <span v-if="false" class="text-[11px]">{{ timer }}</span>
-      <span class="font-bold text-green-600">{{ time }}</span>
+      <span class="font-bold text-white">{{ time }}</span>
       <span class="text-black text-">{{ title }}</span>
     </div>
   </div>
